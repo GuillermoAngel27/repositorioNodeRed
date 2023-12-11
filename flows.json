@@ -1,13 +1,5 @@
 [
     {
-        "id": "3ab29f0de411b7ae",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "914561935ad721a6",
         "type": "tab",
         "label": "fljEjemplo",
@@ -81,7 +73,7 @@
     {
         "id": "54a0b3a48a874218",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Ejemplo de Web Services",
         "disabled": false,
         "info": "",
         "env": []
