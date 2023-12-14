@@ -79,14 +79,6 @@
         "env": []
     },
     {
-        "id": "aed7fdab8a3bd4f2",
-        "type": "tab",
-        "label": "flwIndicadorEstacionamiento",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "55ba811a.d1969",
         "type": "tab",
         "label": "Flow 1",
@@ -171,8 +163,8 @@
         "category": "",
         "in": [
             {
-                "x": 50,
-                "y": 30,
+                "x": 60,
+                "y": 140,
                 "wires": [
                     {
                         "id": "7401253026624c7c"
@@ -196,6 +188,25 @@
         "meta": {},
         "color": "#E6E0F8",
         "icon": "node-red/switch.svg"
+    },
+    {
+        "id": "67dffef79849762b",
+        "type": "subflow",
+        "name": "subFlwMuestraDisponibilidad",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 180,
+                "y": 440,
+                "wires": []
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#FFF0F0",
+        "icon": "font-awesome/fa-train"
     },
     {
         "id": "f6610e3b2387ac5c",
@@ -362,7 +373,7 @@
         "id": "83b85919b2dac752",
         "type": "MySQLdatabase",
         "name": "",
-        "host": "127.0.0.1",
+        "host": "192.168.0.38",
         "port": "3306",
         "db": "parkingtaq",
         "tz": "",
@@ -828,7 +839,7 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "89c1aad203a427f8",
         "name": "",
-        "x": 730,
+        "x": 750,
         "y": 140,
         "wires": [
             [
@@ -848,7 +859,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 560,
         "y": 140,
         "wires": [
             [
@@ -869,8 +880,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 60,
+        "x": 920,
+        "y": 100,
         "wires": []
     },
     {
@@ -878,7 +889,7 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "89c1aad203a427f8",
         "name": "",
-        "x": 310,
+        "x": 350,
         "y": 140,
         "wires": [
             [
@@ -897,11 +908,1666 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 150,
+        "x": 190,
         "y": 140,
         "wires": [
             [
                 "0b0785a15c45f43b"
+            ]
+        ]
+    },
+    {
+        "id": "5cad33c463d93927",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 3,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "1",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "1",
+        "x": 1210,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4c5fd4d159591414",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 5,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "3",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "3",
+        "x": 1210,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d8ac60f82a15b822",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 4,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "2",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "2",
+        "x": 1210,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "43916ac8e213820c",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 7,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "5",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "5",
+        "x": 1210,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3fbf364889cd5a0c",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad1",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[0] && datos[0].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 60,
+        "wires": [
+            [
+                "5cad33c463d93927"
+            ]
+        ]
+    },
+    {
+        "id": "a9c584eb807c12ef",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSearchDisponibilidad",
+        "func": "msg.topic = `select * from lugares_est  limit 30;`;\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 580,
+        "wires": [
+            [
+                "172e4ca610400808"
+            ]
+        ]
+    },
+    {
+        "id": "172e4ca610400808",
+        "type": "subflow:0cd476c06e8fa6b2",
+        "z": "67dffef79849762b",
+        "name": "",
+        "x": 230,
+        "y": 620,
+        "wires": [
+            [
+                "2e22cb5818ce7135"
+            ]
+        ]
+    },
+    {
+        "id": "3c00ee84a811b268",
+        "type": "inject",
+        "z": "67dffef79849762b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "4",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "a9c584eb807c12ef"
+            ]
+        ]
+    },
+    {
+        "id": "2e22cb5818ce7135",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSearchDisponibilidad",
+        "func": "var datos = msg.payload;\nglobal.set(\"datos\",datos);\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 660,
+        "wires": [
+            [
+                "f34606207819c643",
+                "3fbf364889cd5a0c",
+                "ad8a3b45a6643134",
+                "06c12ab6e094cfc7",
+                "a26e8794032b372e",
+                "1de8b8d95d38d660",
+                "2a87a75032af29c6",
+                "7a63a7e77ea51298",
+                "a2c6cbc04d4f5de6",
+                "b2ab905629d3bc21",
+                "295a69385486ddc4",
+                "05d9686b59839d11",
+                "2f8f612ac1502d3e",
+                "6c427d534937344c",
+                "0fd032302948de55",
+                "4ae1cbc8d55f06c3",
+                "63c53716f58c4c99",
+                "a57f71f3b05fe032",
+                "dec5f3f8c817c0d4",
+                "04b9d6d155135769",
+                "b9ee98ab9512b449",
+                "3ebe3eb78fd31187",
+                "e5ebc6cd22929453",
+                "98d26ab95a4e323a",
+                "4b3f19eda1d0e1c8",
+                "139ccc759eece266",
+                "1c4fcdf94a1b2872",
+                "bc4488c08b864019",
+                "9947b1c89f49f47f",
+                "6d162d69e8fcc8ab",
+                "3d2edb0d9e946101"
+            ]
+        ]
+    },
+    {
+        "id": "693820caf3598228",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 6,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "4",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "4",
+        "x": 1210,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f34606207819c643",
+        "type": "debug",
+        "z": "67dffef79849762b",
+        "name": "debug 36",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ad8a3b45a6643134",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad2",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[1] && datos[1].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 100,
+        "wires": [
+            [
+                "d8ac60f82a15b822"
+            ]
+        ]
+    },
+    {
+        "id": "1de8b8d95d38d660",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad5",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[4] && datos[4].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 220,
+        "wires": [
+            [
+                "43916ac8e213820c"
+            ]
+        ]
+    },
+    {
+        "id": "a26e8794032b372e",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad4",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[3] && datos[3].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "693820caf3598228"
+            ]
+        ]
+    },
+    {
+        "id": "06c12ab6e094cfc7",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad3",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[2] && datos[2].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 140,
+        "wires": [
+            [
+                "4c5fd4d159591414"
+            ]
+        ]
+    },
+    {
+        "id": "f1ee0abb62ef80ec",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 8,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "6",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "6",
+        "x": 1210,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "79896e8398d0ab60",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 10,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "8",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "8",
+        "x": 1210,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9169d86de35ab880",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 9,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "7",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "7",
+        "x": 1210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ca65556036505ae1",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 12,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "10",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "10",
+        "x": 1210,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2a87a75032af29c6",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad6",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[5] && datos[5].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "f1ee0abb62ef80ec"
+            ]
+        ]
+    },
+    {
+        "id": "27602b3e0587e5a8",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 11,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "9",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "9",
+        "x": 1210,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7a63a7e77ea51298",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad7",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[6] && datos[6].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 320,
+        "wires": [
+            [
+                "9169d86de35ab880"
+            ]
+        ]
+    },
+    {
+        "id": "295a69385486ddc4",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad10",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[9] && datos[9].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 440,
+        "wires": [
+            [
+                "ca65556036505ae1"
+            ]
+        ]
+    },
+    {
+        "id": "b2ab905629d3bc21",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad9",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[8] && datos[8].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 400,
+        "wires": [
+            [
+                "27602b3e0587e5a8"
+            ]
+        ]
+    },
+    {
+        "id": "a2c6cbc04d4f5de6",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad8",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[7] && datos[7].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "79896e8398d0ab60"
+            ]
+        ]
+    },
+    {
+        "id": "4276a1866700b8dd",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 13,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "11",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "11",
+        "x": 1210,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "00c6e8eb415f777e",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 15,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "13",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "13",
+        "x": 1210,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "09721abf125137c1",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 14,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "12",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "12",
+        "x": 1210,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f07291aed9adcb56",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 17,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "15",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "15",
+        "x": 1210,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "05d9686b59839d11",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad11",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[10] && datos[10].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 500,
+        "wires": [
+            [
+                "4276a1866700b8dd"
+            ]
+        ]
+    },
+    {
+        "id": "a0d625ae5b2230d6",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 16,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "14",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "14",
+        "x": 1210,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "2f8f612ac1502d3e",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad12",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[11] && datos[11].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 540,
+        "wires": [
+            [
+                "09721abf125137c1"
+            ]
+        ]
+    },
+    {
+        "id": "4ae1cbc8d55f06c3",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad15",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[14] && datos[14].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "f07291aed9adcb56"
+            ]
+        ]
+    },
+    {
+        "id": "0fd032302948de55",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad14",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[13] && datos[13].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 620,
+        "wires": [
+            [
+                "a0d625ae5b2230d6"
+            ]
+        ]
+    },
+    {
+        "id": "6c427d534937344c",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad13",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[12] && datos[12].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 580,
+        "wires": [
+            [
+                "00c6e8eb415f777e"
+            ]
+        ]
+    },
+    {
+        "id": "68d46f579b3df412",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 18,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "16",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "16",
+        "x": 1210,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "093abe5437e98a25",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 20,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "18",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "18",
+        "x": 1210,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "c4edbb58cd91044c",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 19,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "17",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "17",
+        "x": 1210,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d6f0d2e672e43510",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 22,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "20",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "20",
+        "x": 1210,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "63c53716f58c4c99",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad16",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[15] && datos[15].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 720,
+        "wires": [
+            [
+                "68d46f579b3df412"
+            ]
+        ]
+    },
+    {
+        "id": "1ddabbeead104b14",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 21,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "19",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "19",
+        "x": 1210,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a57f71f3b05fe032",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad17",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[16] && datos[16].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 760,
+        "wires": [
+            [
+                "c4edbb58cd91044c"
+            ]
+        ]
+    },
+    {
+        "id": "b9ee98ab9512b449",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad20",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[19] && datos[19].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 880,
+        "wires": [
+            [
+                "d6f0d2e672e43510"
+            ]
+        ]
+    },
+    {
+        "id": "04b9d6d155135769",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad19",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[18] && datos[18].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 840,
+        "wires": [
+            [
+                "1ddabbeead104b14"
+            ]
+        ]
+    },
+    {
+        "id": "dec5f3f8c817c0d4",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad18",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[17] && datos[17].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 800,
+        "wires": [
+            [
+                "093abe5437e98a25"
+            ]
+        ]
+    },
+    {
+        "id": "ddd346ffdb83f38e",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 23,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "21",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "21",
+        "x": 1210,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "70acc8d811c4dcf1",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 25,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "23",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "23",
+        "x": 1210,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "21aacb35496fd5e7",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 24,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "22",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "22",
+        "x": 1210,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "d152579436ef06be",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 27,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "25",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "25",
+        "x": 1210,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "3ebe3eb78fd31187",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad21",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[20] && datos[20].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 940,
+        "wires": [
+            [
+                "ddd346ffdb83f38e"
+            ]
+        ]
+    },
+    {
+        "id": "c696de4edd49a15e",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 26,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "24",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "24",
+        "x": 1210,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "e5ebc6cd22929453",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad22",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[21] && datos[21].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 980,
+        "wires": [
+            [
+                "21aacb35496fd5e7"
+            ]
+        ]
+    },
+    {
+        "id": "139ccc759eece266",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad25",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[24] && datos[24].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1100,
+        "wires": [
+            [
+                "d152579436ef06be"
+            ]
+        ]
+    },
+    {
+        "id": "4b3f19eda1d0e1c8",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad24",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[23] && datos[23].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1060,
+        "wires": [
+            [
+                "c696de4edd49a15e"
+            ]
+        ]
+    },
+    {
+        "id": "98d26ab95a4e323a",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad23",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[22] && datos[22].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1020,
+        "wires": [
+            [
+                "70acc8d811c4dcf1"
+            ]
+        ]
+    },
+    {
+        "id": "8c31c082902a11e8",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 28,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "26",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "26",
+        "x": 1210,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "b3640d8c7e996b77",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 30,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "28",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "28",
+        "x": 1210,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "baeb430df425a226",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 29,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "27",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "27",
+        "x": 1210,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "bc8bb6d30a8be87a",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 32,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "30",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "30",
+        "x": 1210,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "1c4fcdf94a1b2872",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad26",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[25] && datos[25].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1160,
+        "wires": [
+            [
+                "8c31c082902a11e8"
+            ]
+        ]
+    },
+    {
+        "id": "1c288c80cfe9d213",
+        "type": "ui_led",
+        "z": "67dffef79849762b",
+        "order": 31,
+        "group": "dadfe6c80b9c9c3a",
+        "width": "2",
+        "height": "1",
+        "label": "29",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "29",
+        "x": 1210,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "bc4488c08b864019",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad27",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[26] && datos[26].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1200,
+        "wires": [
+            [
+                "baeb430df425a226"
+            ]
+        ]
+    },
+    {
+        "id": "3d2edb0d9e946101",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad30",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[29] && datos[29].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1320,
+        "wires": [
+            [
+                "bc8bb6d30a8be87a"
+            ]
+        ]
+    },
+    {
+        "id": "6d162d69e8fcc8ab",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad29",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[28] && datos[28].estatus;\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1280,
+        "wires": [
+            [
+                "1c288c80cfe9d213"
+            ]
+        ]
+    },
+    {
+        "id": "9947b1c89f49f47f",
+        "type": "function",
+        "z": "67dffef79849762b",
+        "name": "fnSalidad28",
+        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[27] && datos[27].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1240,
+        "wires": [
+            [
+                "b3640d8c7e996b77"
             ]
         ]
     },
@@ -3160,8 +4826,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 220,
+        "x": 900,
+        "y": 160,
         "wires": [
             [
                 "85e5183e6ac88253"
@@ -3173,8 +4839,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 790,
-        "y": 220,
+        "x": 1090,
+        "y": 160,
         "wires": [
             [
                 "bc5fe8d98917d944"
@@ -3186,8 +4852,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 450,
-        "y": 220,
+        "x": 710,
+        "y": 160,
         "wires": [
             [
                 "925923a07dbba083"
@@ -3205,8 +4871,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 220,
+        "x": 530,
+        "y": 160,
         "wires": [
             [
                 "f2ee0ff958c731dc"
@@ -3224,8 +4890,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 280,
+        "x": 540,
+        "y": 200,
         "wires": [
             [
                 "953b01f79944ac7a"
@@ -3237,8 +4903,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 590,
-        "y": 280,
+        "x": 730,
+        "y": 200,
         "wires": [
             [
                 "4ee0578766d4de58",
@@ -3259,8 +4925,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 320,
+        "x": 940,
+        "y": 240,
         "wires": []
     },
     {
@@ -3281,7 +4947,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 100,
+        "y": 120,
         "wires": [
             []
         ]
@@ -3298,8 +4964,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 200,
-        "y": 280,
+        "x": 300,
+        "y": 200,
         "wires": [
             [
                 "7440f9cdc70f3172",
@@ -3315,12 +4981,13 @@
         "name": "fnBuscarFolio",
         "func": "msg.topic = `select * from folios_est order by folio desc limit 1;`;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 960,
-        "y": 220,
+        "x": 1280,
+        "y": 160,
         "wires": [
             [
                 "4c0d41d424520759"
@@ -3332,8 +4999,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 1130,
-        "y": 220,
+        "x": 110,
+        "y": 200,
         "wires": [
             [
                 "43e8d042d6934d19"
@@ -3360,8 +5027,8 @@
         "payloadType": "bool",
         "topic": "",
         "topicType": "str",
-        "x": 80,
-        "y": 700,
+        "x": 100,
+        "y": 560,
         "wires": [
             [
                 "f9f09c907b4642d5"
@@ -3373,8 +5040,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 750,
-        "y": 700,
+        "x": 1030,
+        "y": 560,
         "wires": [
             [
                 "bf3266e6a33595f7"
@@ -3386,8 +5053,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 410,
-        "y": 700,
+        "x": 690,
+        "y": 560,
         "wires": [
             [
                 "03f50abb6813a087"
@@ -3405,8 +5072,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 660,
+        "x": 530,
+        "y": 560,
         "wires": [
             [
                 "f61ad2e183818028"
@@ -3424,8 +5091,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 760,
+        "x": 540,
+        "y": 600,
         "wires": [
             [
                 "08e64561a62c6f32"
@@ -3437,8 +5104,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 570,
-        "y": 760,
+        "x": 710,
+        "y": 600,
         "wires": [
             [
                 "a585ca71578463c8",
@@ -3459,8 +5126,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 800,
+        "x": 900,
+        "y": 640,
         "wires": []
     },
     {
@@ -3484,8 +5151,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 640,
+        "x": 130,
+        "y": 520,
         "wires": [
             []
         ]
@@ -3501,8 +5168,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 160,
-        "y": 760,
+        "x": 300,
+        "y": 600,
         "wires": [
             [
                 "e5d81b659aeb8862",
@@ -3516,8 +5183,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 1090,
-        "y": 700,
+        "x": 110,
+        "y": 600,
         "wires": [
             [
                 "09962f7307487944"
@@ -3539,8 +5206,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 400,
-        "y": 320,
+        "x": 540,
+        "y": 240,
         "wires": []
     },
     {
@@ -3558,8 +5225,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 380,
-        "y": 800,
+        "x": 540,
+        "y": 640,
         "wires": []
     },
     {
@@ -3573,8 +5240,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 700,
+        "x": 1200,
+        "y": 560,
         "wires": [
             [
                 "7fdce5739768f064"
@@ -3592,8 +5259,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 700,
+        "x": 860,
+        "y": 560,
         "wires": [
             [
                 "00f968db9b71fa7f"
@@ -3611,8 +5278,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 280,
+        "x": 910,
+        "y": 200,
         "wires": [
             [
                 "7f1512411e72fa81"
@@ -3630,8 +5297,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 890,
-        "y": 280,
+        "x": 1070,
+        "y": 200,
         "wires": [
             [
                 "9ea54ee571a189f3"
@@ -3650,8 +5317,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 1080,
-        "y": 280,
+        "x": 1240,
+        "y": 200,
         "wires": [
             [
                 "700b3e03cbac8ad4"
@@ -3677,8 +5344,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 340,
+        "x": 1430,
+        "y": 200,
         "wires": []
     },
     {
@@ -3687,8 +5354,8 @@
         "z": "281fcb369639668d",
         "name": "Flujo de la entrada 1",
         "info": "",
-        "x": 110,
-        "y": 60,
+        "x": 130,
+        "y": 80,
         "wires": []
     },
     {
@@ -3698,7 +5365,7 @@
         "name": "Flujo de la entrada 2",
         "info": "",
         "x": 130,
-        "y": 600,
+        "y": 480,
         "wires": []
     },
     {
@@ -3712,8 +5379,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 760,
+        "x": 870,
+        "y": 600,
         "wires": [
             [
                 "223008cd23383315"
@@ -3731,8 +5398,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 890,
-        "y": 760,
+        "x": 1010,
+        "y": 600,
         "wires": [
             [
                 "a242e4fa22912b63"
@@ -3751,8 +5418,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 1080,
-        "y": 760,
+        "x": 1180,
+        "y": 600,
         "wires": [
             [
                 "86a75b93c88be12b"
@@ -3778,8 +5445,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 820,
+        "x": 1390,
+        "y": 600,
         "wires": []
     },
     {
@@ -3800,8 +5467,8 @@
         "type": "subflow:89c1aad203a427f8",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 830,
-        "y": 380,
+        "x": 570,
+        "y": 280,
         "wires": [
             [
                 "2440145eda1c751e"
@@ -3816,8 +5483,8 @@
         "group": "e9dac18c3e8fef5a",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
         "always": "",
-        "x": 1240,
-        "y": 380,
+        "x": 960,
+        "y": 280,
         "wires": []
     },
     {
@@ -3832,8 +5499,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1070,
-        "y": 380,
+        "x": 790,
+        "y": 280,
         "wires": [
             [
                 "b88c7197e0ef36f7"
@@ -3845,8 +5512,8 @@
         "type": "subflow:f03057dae7955163",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 420,
-        "y": 600,
+        "x": 320,
+        "y": 560,
         "wires": [
             [
                 "67cee5fae5c4eac5"
@@ -3858,8 +5525,8 @@
         "type": "subflow:89c1aad203a427f8",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 810,
-        "y": 880,
+        "x": 570,
+        "y": 680,
         "wires": [
             [
                 "3d08cd6e8445f078"
@@ -3877,8 +5544,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
-        "y": 880,
+        "x": 790,
+        "y": 680,
         "wires": [
             [
                 "e0094fa20b5e0ce3"
@@ -3893,8 +5560,8 @@
         "group": "e9dac18c3e8fef5a",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
         "always": "",
-        "x": 1220,
-        "y": 880,
+        "x": 980,
+        "y": 680,
         "wires": []
     },
     {
@@ -3915,7 +5582,7 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 210,
+        "x": 190,
         "y": 180,
         "wires": [
             [
@@ -3943,7 +5610,7 @@
         "payloadType": "bool",
         "topic": "",
         "topicType": "str",
-        "x": 640,
+        "x": 620,
         "y": 180,
         "wires": [
             [
@@ -3962,8 +5629,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 280,
+        "x": 500,
+        "y": 300,
         "wires": [
             [
                 "e1f51e61aa5f586d",
@@ -3976,8 +5643,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 670,
-        "y": 280,
+        "x": 690,
+        "y": 300,
         "wires": [
             [
                 "ba64916857ea48d8"
@@ -3989,8 +5656,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 310,
-        "y": 280,
+        "x": 330,
+        "y": 300,
         "wires": [
             [
                 "a12019389423ccba"
@@ -4008,8 +5675,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 150,
-        "y": 280,
+        "x": 170,
+        "y": 300,
         "wires": [
             [
                 "e5bec2987b522029"
@@ -4027,8 +5694,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 340,
+        "x": 420,
+        "y": 360,
         "wires": [
             [
                 "104a8f433b59a6b0"
@@ -4040,8 +5707,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 550,
-        "y": 340,
+        "x": 590,
+        "y": 360,
         "wires": [
             [
                 "62161fe7ee2316b2",
@@ -4062,8 +5729,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 380,
+        "x": 780,
+        "y": 400,
         "wires": []
     },
     {
@@ -4077,8 +5744,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 340,
+        "x": 200,
+        "y": 360,
         "wires": [
             [
                 "999708543039de8f",
@@ -4097,8 +5764,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
-        "y": 280,
+        "x": 880,
+        "y": 300,
         "wires": [
             [
                 "6ee40a93dc66985c"
@@ -4110,8 +5777,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 1030,
-        "y": 280,
+        "x": 1050,
+        "y": 300,
         "wires": [
             [
                 "bcf48a0f8ffa4880"
@@ -4133,8 +5800,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 370,
-        "y": 440,
+        "x": 410,
+        "y": 400,
         "wires": [
             []
         ]
@@ -4150,8 +5817,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 340,
+        "x": 750,
+        "y": 360,
         "wires": [
             [
                 "eac4f91f51edc0bd"
@@ -4169,8 +5836,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 850,
-        "y": 340,
+        "x": 910,
+        "y": 360,
         "wires": [
             [
                 "afde094a6164a3e4"
@@ -4189,8 +5856,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 1020,
-        "y": 340,
+        "x": 1080,
+        "y": 360,
         "wires": [
             [
                 "f0d7e584f07a2e6d"
@@ -4217,8 +5884,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1230,
-        "y": 320,
+        "x": 1290,
+        "y": 360,
         "wires": []
     },
     {
@@ -4234,8 +5901,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 240,
+        "x": 680,
+        "y": 260,
         "wires": []
     },
     {
@@ -4249,7 +5916,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
+        "x": 400,
         "y": 180,
         "wires": [
             [
@@ -4271,7 +5938,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
+        "x": 580,
         "y": 140,
         "wires": []
     },
@@ -4287,7 +5954,7 @@
         "finalize": "",
         "libs": [],
         "x": 170,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "8c0e30d2bde245cc"
@@ -4316,7 +5983,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1050,
+        "x": 1030,
         "y": 180,
         "wires": [
             [
@@ -4338,7 +6005,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
+        "x": 810,
         "y": 180,
         "wires": [
             [
@@ -4361,8 +6028,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 80,
+        "x": 1040,
+        "y": 100,
         "wires": []
     },
     {
@@ -4376,7 +6043,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1230,
+        "x": 1210,
         "y": 160,
         "wires": [
             [
@@ -4399,8 +6066,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 1350,
-        "y": 80,
+        "x": 1390,
+        "y": 160,
         "wires": [
             []
         ]
@@ -4416,7 +6083,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1230,
+        "x": 1210,
         "y": 200,
         "wires": [
             [
@@ -4436,8 +6103,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1120,
-        "y": 120,
+        "x": 1040,
+        "y": 140,
         "wires": []
     },
     {
@@ -4449,8 +6116,8 @@
         "links": [
             "5088e9c33665a2b9"
         ],
-        "x": 1245,
-        "y": 360,
+        "x": 1175,
+        "y": 440,
         "wires": []
     },
     {
@@ -4461,7 +6128,7 @@
         "links": [
             "15ad96f3ef3b70e8"
         ],
-        "x": 65,
+        "x": 95,
         "y": 80,
         "wires": [
             [
@@ -4477,8 +6144,8 @@
         "links": [
             "33cb1969b92bfe0a"
         ],
-        "x": 35,
-        "y": 280,
+        "x": 55,
+        "y": 300,
         "wires": [
             [
                 "7178908feef46349"
@@ -4494,7 +6161,7 @@
         "links": [
             "833fbbed8b825ffc"
         ],
-        "x": 1365,
+        "x": 1335,
         "y": 200,
         "wires": []
     },
@@ -4507,7 +6174,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Tipo de Boleto",
+        "label": "Tipo de Boleto :",
         "format": "{{msg.str_resultado}}",
         "layout": "row-spread",
         "className": "",
@@ -4526,6 +6193,7 @@
         "name": "fnBuscaFolios",
         "func": "var numFolio;\nnumFolio= msg.payload;\n\n    msg.topic = `select * from folios_est \n    where folio='${numFolio}' order by folio desc ;`\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -4604,7 +6272,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Fecha de ingreso",
+        "label": "Fecha de ingreso :",
         "format": "{{msg.fecha}}",
         "layout": "row-spread",
         "className": "",
@@ -4740,7 +6408,7 @@
         "width": "0",
         "height": "0",
         "name": "",
-        "label": "Total a Pagar",
+        "label": "Total a Pagar :",
         "format": "{{msg.pago}}",
         "layout": "row-spread",
         "className": "",
@@ -4748,7 +6416,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 950,
+        "x": 960,
         "y": 280,
         "wires": []
     },
@@ -4761,7 +6429,7 @@
         "width": "0",
         "height": "0",
         "name": "",
-        "label": "Tiempo Estacionado",
+        "label": "Tiempo Estacionado :",
         "format": "{{msg.tiempo}}",
         "layout": "row-spread",
         "className": "",
@@ -4786,7 +6454,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
+        "x": 470,
         "y": 420,
         "wires": []
     },
@@ -4801,7 +6469,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 430,
         "y": 280,
         "wires": [
             [
@@ -4820,7 +6488,7 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 550,
+        "x": 450,
         "y": 320,
         "wires": [
             [
@@ -4840,7 +6508,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 560,
+        "x": 460,
         "y": 360,
         "wires": [
             [
@@ -5002,7 +6670,7 @@
         "width": "3",
         "height": "1",
         "name": "",
-        "label": "TOTAL INGRESADO",
+        "label": "TOTAL INGRESADO :",
         "format": "{{msg.totalIngresado1}}",
         "layout": "row-spread",
         "className": "",
@@ -5315,7 +6983,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Fecha Salida",
+        "label": "Fecha Salida :",
         "format": "{{msg.fechaSalida}}",
         "layout": "row-spread",
         "className": "",
@@ -5323,7 +6991,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1210,
+        "x": 1220,
         "y": 400,
         "wires": []
     },
@@ -5334,12 +7002,13 @@
         "name": "fnReiniciarValor",
         "func": "msg.payload = \"Reiniciar\";\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 460,
+        "x": 380,
+        "y": 540,
         "wires": [
             [
                 "7131d71141e8181e"
@@ -5358,7 +7027,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 1180,
+        "y": 1200,
         "wires": [
             [
                 "f5cd2c0804b4c3ea",
@@ -5380,7 +7049,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 1140,
+        "y": 1160,
         "wires": []
     },
     {
@@ -5394,8 +7063,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1220,
+        "x": 930,
+        "y": 1200,
         "wires": [
             [
                 "fdee30028dd43346",
@@ -5408,8 +7077,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "2a8d06e593a2285c",
         "name": "",
-        "x": 750,
-        "y": 1220,
+        "x": 1150,
+        "y": 1200,
         "wires": [
             [
                 "97a0f6f7261aca6c"
@@ -5421,8 +7090,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "2a8d06e593a2285c",
         "name": "",
-        "x": 330,
-        "y": 1220,
+        "x": 730,
+        "y": 1200,
         "wires": [
             [
                 "676566f0a7fdb7a8"
@@ -5436,12 +7105,13 @@
         "name": "fnLockTable",
         "func": "if (msg.payload===true){\nmsg.topic = `lock table hist_est_folios write;`;\nreturn msg;\n}\n\n\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 130,
-        "y": 1220,
+        "x": 570,
+        "y": 1200,
         "wires": [
             [
                 "0ba1b329c6d97492"
@@ -5459,8 +7129,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 1260,
+        "x": 1320,
+        "y": 1200,
         "wires": [
             [
                 "bd3580ecb213bce2"
@@ -5472,8 +7142,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "2a8d06e593a2285c",
         "name": "",
-        "x": 330,
-        "y": 1260,
+        "x": 130,
+        "y": 1240,
         "wires": [
             [
                 "18e5296fd4c6f71f"
@@ -5491,8 +7161,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1260,
+        "x": 330,
+        "y": 1240,
         "wires": [
             [
                 "73c4e72321b7bb43",
@@ -5517,8 +7187,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 750,
-        "y": 1300,
+        "x": 570,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -5536,8 +7206,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 1180,
+        "x": 1180,
+        "y": 1140,
         "wires": []
     },
     {
@@ -5558,7 +7228,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 420,
-        "y": 1180,
+        "y": 1200,
         "wires": [
             [
                 "1fdfbb55715c9456"
@@ -5593,8 +7263,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1260,
+        "x": 610,
+        "y": 1240,
         "wires": [
             [
                 "12345678.abcdef",
@@ -5640,8 +7310,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1070,
-        "y": 1220,
+        "x": 930,
+        "y": 1280,
         "wires": [
             [
                 "1af039b222497c28"
@@ -5674,8 +7344,8 @@
             "aa8ccbe5eca9b219",
             "ea21bb63e41ea641"
         ],
-        "x": 1005,
-        "y": 1260,
+        "x": 1145,
+        "y": 1240,
         "wires": []
     },
     {
@@ -5703,8 +7373,8 @@
         "links": [
             "6573c2794de9fe45"
         ],
-        "x": 1215,
-        "y": 1220,
+        "x": 1145,
+        "y": 1280,
         "wires": []
     },
     {
@@ -5743,8 +7413,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
-        "y": 1300,
+        "x": 950,
+        "y": 1320,
         "wires": [
             [
                 "9ca4507d871ac043"
@@ -5760,8 +7430,8 @@
         "links": [
             "fd27c09db33a8152"
         ],
-        "x": 1225,
-        "y": 1300,
+        "x": 1145,
+        "y": 1320,
         "wires": []
     },
     {
@@ -5772,8 +7442,8 @@
         "links": [
             "9ca4507d871ac043"
         ],
-        "x": 505,
-        "y": 800,
+        "x": 495,
+        "y": 760,
         "wires": [
             [
                 "5dbcaea5a62dea2a"
@@ -5803,8 +7473,8 @@
         "group": "25b503f9b6a954f4",
         "voice": "urn:moz-tts:sapi:Microsoft Pablo - Spanish (Spain)?es-ES",
         "always": "",
-        "x": 740,
-        "y": 1340,
+        "x": 560,
+        "y": 1320,
         "wires": []
     },
     {
@@ -5930,13 +7600,13 @@
         "name": "",
         "label": "Billetes",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "col-center",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 100,
+        "x": 80,
         "y": 520,
         "wires": []
     },
@@ -5951,13 +7621,13 @@
         "name": "",
         "label": "Monedas",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "col-center",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 100,
+        "x": 80,
         "y": 480,
         "wires": []
     },
@@ -6059,7 +7729,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
+        "x": 530,
         "y": 960,
         "wires": [
             [
@@ -6085,7 +7755,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 190,
+        "x": 530,
         "y": 1000,
         "wires": [
             [
@@ -6107,7 +7777,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 830,
         "y": 980,
         "wires": [
             [
@@ -6126,7 +7796,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 810,
         "y": 1020,
         "wires": [
             [
@@ -6145,7 +7815,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
+        "x": 1090,
         "y": 980,
         "wires": [
             [
@@ -6169,7 +7839,7 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 440,
+        "x": 780,
         "y": 940,
         "wires": []
     },
@@ -6186,7 +7856,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
+        "x": 1310,
         "y": 980,
         "wires": []
     },
@@ -6203,7 +7873,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
+        "x": 1070,
         "y": 1020,
         "wires": []
     },
@@ -6222,7 +7892,7 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 760,
+        "x": 1100,
         "y": 940,
         "wires": []
     },
@@ -6239,8 +7909,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 1340,
+        "x": 900,
+        "y": 1360,
         "wires": []
     },
     {
@@ -6250,12 +7920,13 @@
         "name": "fnLockTable",
         "func": "\nmsg.topic = `lock table folios_est write;`;\nreturn msg;\n\n\n\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 130,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "9e63aa90aa0514c7"
@@ -6268,7 +7939,7 @@
         "z": "2a8d06e593a2285c",
         "name": "",
         "x": 290,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "017a55820e2083dd"
@@ -6280,14 +7951,15 @@
         "type": "function",
         "z": "2a8d06e593a2285c",
         "name": "fnDeleteFolio",
-        "func": "const now = new Date();\nvar numFolio = global.get(\"gblFolio\");\n\n// Formatear la fecha y hora en el formato de MySQL\nconst formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;\n\n\nmsg.topic = `delete from folios_est where folio = ${numFolio};`;\nreturn msg;\n\n",
+        "func": "var numFolio = global.get(\"gblFolio\");\n\nmsg.topic = `delete from folios_est where folio = ${numFolio};`;\nreturn msg;\n\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "282bb7c2407ddea3"
@@ -6300,39 +7972,7 @@
         "z": "2a8d06e593a2285c",
         "name": "",
         "x": 610,
-        "y": 1420,
-        "wires": [
-            [
-                "1b5c1b6c30c7c96e"
-            ]
-        ]
-    },
-    {
-        "id": "1b5c1b6c30c7c96e",
-        "type": "function",
-        "z": "2a8d06e593a2285c",
-        "name": "fnBuscarFolio",
-        "func": "msg.topic = `select * from folios_est order by folio desc limit 1;`;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 1420,
-        "wires": [
-            [
-                "1e98c328af4ee93b"
-            ]
-        ]
-    },
-    {
-        "id": "1e98c328af4ee93b",
-        "type": "subflow:0cd476c06e8fa6b2",
-        "z": "2a8d06e593a2285c",
-        "name": "",
-        "x": 950,
-        "y": 1420,
+        "y": 1500,
         "wires": [
             [
                 "0946a7eb9be9e112"
@@ -6346,12 +7986,13 @@
         "name": "fnUnlockTable",
         "func": "msg.topic = `unlock tables;`;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 1460,
+        "x": 780,
+        "y": 1500,
         "wires": [
             [
                 "e7c0ccdec2058ae7"
@@ -6363,11 +8004,12 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "2a8d06e593a2285c",
         "name": "",
-        "x": 310,
-        "y": 1460,
+        "x": 950,
+        "y": 1500,
         "wires": [
             [
-                "6541cf46cba28047"
+                "6541cf46cba28047",
+                "aaccef568d667658"
             ]
         ]
     },
@@ -6412,8 +8054,134 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 1540,
+        "x": 940,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "aaccef568d667658",
+        "type": "function",
+        "z": "2a8d06e593a2285c",
+        "name": "fnLockTable",
+        "func": "\nmsg.topic = `lock table lugares_est write;`;\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 1560,
+        "wires": [
+            [
+                "11f8936496c1c1d7"
+            ]
+        ]
+    },
+    {
+        "id": "11f8936496c1c1d7",
+        "type": "subflow:0cd476c06e8fa6b2",
+        "z": "2a8d06e593a2285c",
+        "name": "",
+        "x": 290,
+        "y": 1560,
+        "wires": [
+            [
+                "1be99fabf7974296"
+            ]
+        ]
+    },
+    {
+        "id": "1be99fabf7974296",
+        "type": "function",
+        "z": "2a8d06e593a2285c",
+        "name": "fnCambiaDisponibleLugaresEst",
+        "func": "msg.topic = `UPDATE lugares_Est set estatus ='DISPONIBLE' WHERE estatus='OCUPADO' and idLugar between 1 and 30 limit 1;`;\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1560,
+        "wires": [
+            [
+                "6fea58d0a78f6233"
+            ]
+        ]
+    },
+    {
+        "id": "6fea58d0a78f6233",
+        "type": "subflow:0cd476c06e8fa6b2",
+        "z": "2a8d06e593a2285c",
+        "name": "",
+        "x": 750,
+        "y": 1560,
+        "wires": [
+            [
+                "6e49ab051c61f374"
+            ]
+        ]
+    },
+    {
+        "id": "6e49ab051c61f374",
+        "type": "function",
+        "z": "2a8d06e593a2285c",
+        "name": "fnUnlockTable",
+        "func": "msg.topic = `unlock tables;`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 1560,
+        "wires": [
+            [
+                "43442b75b957a5f3"
+            ]
+        ]
+    },
+    {
+        "id": "43442b75b957a5f3",
+        "type": "subflow:0cd476c06e8fa6b2",
+        "z": "2a8d06e593a2285c",
+        "name": "",
+        "x": 1090,
+        "y": 1560,
+        "wires": [
+            [
+                "3cb36d6ac69a1d1b",
+                "a6ee8ac6fb32f485"
+            ]
+        ]
+    },
+    {
+        "id": "3cb36d6ac69a1d1b",
+        "type": "debug",
+        "z": "2a8d06e593a2285c",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "a6ee8ac6fb32f485",
+        "type": "subflow:67dffef79849762b",
+        "z": "2a8d06e593a2285c",
+        "name": "",
+        "x": 1320,
+        "y": 1560,
         "wires": []
     },
     {
@@ -6747,7 +8515,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 310,
         "y": 360,
         "wires": [
             [
@@ -6763,7 +8531,7 @@
         "links": [
             "d992a55b038e71fa"
         ],
-        "x": 65,
+        "x": 75,
         "y": 360,
         "wires": [
             [
@@ -6814,7 +8582,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 330,
         "y": 120,
         "wires": [
             [
@@ -6984,7 +8752,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 370,
         "y": 540,
         "wires": [
             [
@@ -7007,7 +8775,7 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 570,
+        "x": 590,
         "y": 600,
         "wires": []
     },
@@ -7037,7 +8805,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 620,
         "y": 640,
         "wires": [
             [
@@ -7059,7 +8827,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 600,
         "y": 560,
         "wires": []
     },
@@ -7076,7 +8844,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
+        "x": 630,
         "y": 520,
         "wires": []
     },
@@ -7096,7 +8864,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "button_10",
-        "x": 120,
+        "x": 140,
         "y": 480,
         "wires": [
             [
@@ -7120,7 +8888,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "button_5",
-        "x": 120,
+        "x": 140,
         "y": 520,
         "wires": [
             [
@@ -7144,7 +8912,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "button_2",
-        "x": 120,
+        "x": 140,
         "y": 560,
         "wires": [
             [
@@ -7168,7 +8936,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "button_1",
-        "x": 120,
+        "x": 140,
         "y": 600,
         "wires": [
             [
@@ -7189,7 +8957,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 600,
         "y": 480,
         "wires": []
     },
@@ -7204,7 +8972,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 810,
         "y": 680,
         "wires": [
             [
@@ -7224,7 +8992,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 810,
         "y": 620,
         "wires": [
             [
@@ -7245,7 +9013,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
+        "x": 1110,
         "y": 620,
         "wires": []
     },
@@ -7262,7 +9030,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1060,
+        "x": 1080,
         "y": 720,
         "wires": []
     },
@@ -7277,7 +9045,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 330,
         "y": 1080,
         "wires": [
             [
@@ -7388,7 +9156,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 600,
         "y": 980,
         "wires": []
     },
@@ -7403,7 +9171,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
+        "x": 1050,
         "y": 1060,
         "wires": [
             [
@@ -7424,7 +9192,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1300,
+        "x": 1360,
         "y": 1020,
         "wires": []
     },
@@ -7439,7 +9207,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1130,
+        "x": 1190,
         "y": 1060,
         "wires": [
             [
@@ -7466,8 +9234,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1300,
-        "y": 1200,
+        "x": 1360,
+        "y": 1100,
         "wires": []
     },
     {
@@ -7487,7 +9255,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1300,
+        "x": 1360,
         "y": 1060,
         "wires": [
             [
@@ -7721,7 +9489,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1080,
+        "x": 1100,
         "y": 680,
         "wires": []
     },
@@ -7745,7 +9513,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 90,
+        "x": 130,
         "y": 1000,
         "wires": [
             [
@@ -7773,7 +9541,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 90,
+        "x": 130,
         "y": 1040,
         "wires": [
             [
@@ -7801,7 +9569,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 90,
+        "x": 130,
         "y": 1080,
         "wires": [
             [
@@ -7829,7 +9597,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 90,
+        "x": 130,
         "y": 1120,
         "wires": [
             [
@@ -7854,7 +9622,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 520,
+        "x": 560,
         "y": 1020,
         "wires": []
     },
@@ -7880,7 +9648,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
+        "x": 750,
         "y": 1080,
         "wires": [
             [
@@ -7902,7 +9670,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 120,
+        "x": 140,
         "y": 1200,
         "wires": [
             [
@@ -7921,7 +9689,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 350,
         "y": 1200,
         "wires": [
             [
@@ -7941,7 +9709,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 550,
         "y": 1080,
         "wires": [
             [
@@ -7963,7 +9731,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1080,
         "y": 1100,
         "wires": []
     },
@@ -7980,7 +9748,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 980,
+        "x": 1060,
         "y": 1020,
         "wires": []
     },
@@ -7995,7 +9763,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 890,
         "y": 1060,
         "wires": [
             [
@@ -8015,7 +9783,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 890,
         "y": 1100,
         "wires": [
             [
@@ -8036,7 +9804,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
+        "x": 790,
         "y": 1020,
         "wires": []
     },
@@ -8057,7 +9825,7 @@
         "topic": "",
         "payload": "button_10",
         "payloadType": "str",
-        "x": 160,
+        "x": 120,
         "y": 820,
         "wires": [
             [
@@ -8082,7 +9850,7 @@
         "topic": "",
         "payload": "button_5",
         "payloadType": "str",
-        "x": 160,
+        "x": 120,
         "y": 860,
         "wires": [
             [
@@ -8107,7 +9875,7 @@
         "topic": "",
         "payload": "button_2",
         "payloadType": "str",
-        "x": 160,
+        "x": 120,
         "y": 900,
         "wires": [
             [
@@ -8132,7 +9900,7 @@
         "topic": "",
         "payload": "button_1",
         "payloadType": "str",
-        "x": 160,
+        "x": 120,
         "y": 940,
         "wires": [
             [
@@ -8148,7 +9916,7 @@
         "links": [
             "17218d5d43c6662a"
         ],
-        "x": 125,
+        "x": 145,
         "y": 1300,
         "wires": [
             [
@@ -8165,7 +9933,7 @@
         "links": [
             "99e442ab8ddac763"
         ],
-        "x": 1405,
+        "x": 1465,
         "y": 1060,
         "wires": []
     },
@@ -8178,7 +9946,7 @@
         "links": [
             "97f2e36a32b004df"
         ],
-        "x": 495,
+        "x": 515,
         "y": 1200,
         "wires": []
     },
@@ -8190,7 +9958,7 @@
         "links": [
             "ae95980557cf6738"
         ],
-        "x": 1195,
+        "x": 1215,
         "y": 1200,
         "wires": [
             [
@@ -8209,7 +9977,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
+        "x": 410,
         "y": 100,
         "wires": [
             [
@@ -8241,7 +10009,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 690,
+        "x": 750,
         "y": 120,
         "wires": []
     },
@@ -8258,7 +10026,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
+        "x": 770,
         "y": 80,
         "wires": []
     },
@@ -8331,7 +10099,7 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "54a0b3a48a874218",
         "name": "",
-        "x": 550,
+        "x": 590,
         "y": 100,
         "wires": [
             [
@@ -8444,1729 +10212,10 @@
         ]
     },
     {
-        "id": "8539980f6f6597a5",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 3,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "1",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "1",
-        "x": 1150,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "0f3757d4254ac658",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 5,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "3",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "3",
-        "x": 1150,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "da33071c72e6a6a5",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 4,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "2",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "2",
-        "x": 1150,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "0bdbf06e02c32cc8",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 7,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "5",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "5",
-        "x": 1150,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "d343ba8d849fe63a",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad1",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[0] && datos[0].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 560,
-        "wires": [
-            [
-                "3d9bc16245c24b6b",
-                "9274a951f68fba37",
-                "f34b10ee6179e2a1",
-                "8539980f6f6597a5"
-            ]
-        ]
-    },
-    {
-        "id": "a69c59f501cb9630",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSearchDisponibilidad",
-        "func": "msg.topic = `select * from lugares_est  limit 30;`;\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 200,
-        "y": 880,
-        "wires": [
-            [
-                "e1f07461eecdf1b1"
-            ]
-        ]
-    },
-    {
-        "id": "e1f07461eecdf1b1",
-        "type": "subflow:0cd476c06e8fa6b2",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "",
-        "x": 170,
-        "y": 920,
-        "wires": [
-            [
-                "6969e0100c223ed9"
-            ]
-        ]
-    },
-    {
-        "id": "a6114467c260cec6",
-        "type": "subflow:0cd476c06e8fa6b2",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "",
-        "x": 190,
-        "y": 1280,
-        "wires": [
-            [
-                "d343ba8d849fe63a",
-                "570f3f98d03eec5c",
-                "668a76b24f835cf9",
-                "2d29274d198482b0",
-                "52ad37c8fbaaaf50",
-                "796b71d8d491ad04",
-                "af018a302de1f7b4",
-                "c34672349688222f",
-                "e22a20a896c6fefa",
-                "58577bd16c02d559",
-                "f5963ac03c0fefa9",
-                "a81e3e32be2ebbaf",
-                "2169511176e86168",
-                "37fa382ef6aa05b2",
-                "7e21c5cc87065a44",
-                "1e06e4666bf1776a",
-                "b917623c8cae4379",
-                "480251788c47996f",
-                "324053f16a41ba1a",
-                "a90b899e59c0291e",
-                "a86ee00d637c6df2",
-                "2f6bb0bcc0202f0c",
-                "950fe45b9c2c1ad0",
-                "686d16e4f2659f31",
-                "0b49d5adf2a53b0c",
-                "38eef3eaa0d79ce1",
-                "a0453c59818f74fa",
-                "8a9b227c204f1d7e",
-                "729e1d6949452d83",
-                "279eb9d61f021908"
-            ]
-        ]
-    },
-    {
-        "id": "3d9bc16245c24b6b",
-        "type": "debug",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "debug name",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "name",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "2616a5abd7c6bfdd",
-        "type": "inject",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "4",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 840,
-        "wires": [
-            [
-                "a69c59f501cb9630"
-            ]
-        ]
-    },
-    {
-        "id": "6969e0100c223ed9",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSearchDisponibilidad",
-        "func": "var datos = msg.payload;\nglobal.set(\"datos\",datos);\n\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 200,
-        "y": 960,
-        "wires": [
-            [
-                "903e673002d92605",
-                "a6114467c260cec6"
-            ]
-        ]
-    },
-    {
-        "id": "de36825e419627e2",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 6,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "4",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "4",
-        "x": 1150,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "9274a951f68fba37",
-        "type": "debug",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "debug payload",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "f34b10ee6179e2a1",
-        "type": "debug",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "debug lugar",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "lugar",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "903e673002d92605",
-        "type": "debug",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "debug 31",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "570f3f98d03eec5c",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad2",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[1] && datos[1].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 600,
-        "wires": [
-            [
-                "da33071c72e6a6a5"
-            ]
-        ]
-    },
-    {
-        "id": "668a76b24f835cf9",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad5",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[4] && datos[4].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 720,
-        "wires": [
-            [
-                "0bdbf06e02c32cc8"
-            ]
-        ]
-    },
-    {
-        "id": "2d29274d198482b0",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad4",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[3] && datos[3].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 680,
-        "wires": [
-            [
-                "de36825e419627e2"
-            ]
-        ]
-    },
-    {
-        "id": "52ad37c8fbaaaf50",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad3",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[2] && datos[2].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 640,
-        "wires": [
-            [
-                "0f3757d4254ac658"
-            ]
-        ]
-    },
-    {
-        "id": "d8805a71a5c33aef",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 8,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "6",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "6",
-        "x": 1150,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "7ef9ccd61f7c4b9d",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 10,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "8",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "8",
-        "x": 1150,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "49f2b4e07cd1ab24",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 9,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "7",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "7",
-        "x": 1150,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "81cada87cbf1752b",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 12,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "10",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "10",
-        "x": 1150,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "796b71d8d491ad04",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad6",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[5] && datos[5].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 780,
-        "wires": [
-            [
-                "d8805a71a5c33aef"
-            ]
-        ]
-    },
-    {
-        "id": "6eddf0270d082a24",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 11,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "9",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "9",
-        "x": 1150,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "af018a302de1f7b4",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad7",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[6] && datos[6].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 820,
-        "wires": [
-            [
-                "49f2b4e07cd1ab24"
-            ]
-        ]
-    },
-    {
-        "id": "58577bd16c02d559",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad10",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[9] && datos[9].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 940,
-        "wires": [
-            [
-                "81cada87cbf1752b"
-            ]
-        ]
-    },
-    {
-        "id": "e22a20a896c6fefa",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad9",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[8] && datos[8].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 900,
-        "wires": [
-            [
-                "6eddf0270d082a24"
-            ]
-        ]
-    },
-    {
-        "id": "c34672349688222f",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad8",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[7] && datos[7].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 860,
-        "wires": [
-            [
-                "7ef9ccd61f7c4b9d"
-            ]
-        ]
-    },
-    {
-        "id": "cf88a08e4edf22da",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 13,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "11",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "11",
-        "x": 1150,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "1eeb25697f820709",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 15,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "13",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "13",
-        "x": 1150,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "6b7873dcc833fe57",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 14,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "12",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "12",
-        "x": 1150,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "e84b1a1c8e137106",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 17,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "15",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "15",
-        "x": 1150,
-        "y": 1160,
-        "wires": []
-    },
-    {
-        "id": "f5963ac03c0fefa9",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad11",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[10] && datos[10].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1000,
-        "wires": [
-            [
-                "cf88a08e4edf22da"
-            ]
-        ]
-    },
-    {
-        "id": "d1904bfbd64beafa",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 16,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "14",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "14",
-        "x": 1150,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "a81e3e32be2ebbaf",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad12",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[11] && datos[11].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1040,
-        "wires": [
-            [
-                "6b7873dcc833fe57"
-            ]
-        ]
-    },
-    {
-        "id": "7e21c5cc87065a44",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad15",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[14] && datos[14].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1160,
-        "wires": [
-            [
-                "e84b1a1c8e137106"
-            ]
-        ]
-    },
-    {
-        "id": "37fa382ef6aa05b2",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad14",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[13] && datos[13].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1120,
-        "wires": [
-            [
-                "d1904bfbd64beafa"
-            ]
-        ]
-    },
-    {
-        "id": "2169511176e86168",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad13",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[12] && datos[12].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1080,
-        "wires": [
-            [
-                "1eeb25697f820709"
-            ]
-        ]
-    },
-    {
-        "id": "7596d32603486d05",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 18,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "16",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "16",
-        "x": 1150,
-        "y": 1220,
-        "wires": []
-    },
-    {
-        "id": "a10c545233367302",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 20,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "18",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "18",
-        "x": 1150,
-        "y": 1300,
-        "wires": []
-    },
-    {
-        "id": "40d6ce0e154b667c",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 19,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "17",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "17",
-        "x": 1150,
-        "y": 1260,
-        "wires": []
-    },
-    {
-        "id": "3b0b3bc81f701f35",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 22,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "20",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "20",
-        "x": 1150,
-        "y": 1380,
-        "wires": []
-    },
-    {
-        "id": "1e06e4666bf1776a",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad16",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[15] && datos[15].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1220,
-        "wires": [
-            [
-                "7596d32603486d05"
-            ]
-        ]
-    },
-    {
-        "id": "1e0dc6dacc7c99ff",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 21,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "19",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "19",
-        "x": 1150,
-        "y": 1340,
-        "wires": []
-    },
-    {
-        "id": "b917623c8cae4379",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad17",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[16] && datos[16].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1260,
-        "wires": [
-            [
-                "40d6ce0e154b667c"
-            ]
-        ]
-    },
-    {
-        "id": "a90b899e59c0291e",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad20",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[19] && datos[19].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1380,
-        "wires": [
-            [
-                "3b0b3bc81f701f35"
-            ]
-        ]
-    },
-    {
-        "id": "324053f16a41ba1a",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad19",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[18] && datos[18].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1340,
-        "wires": [
-            [
-                "1e0dc6dacc7c99ff"
-            ]
-        ]
-    },
-    {
-        "id": "480251788c47996f",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad18",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[17] && datos[17].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1300,
-        "wires": [
-            [
-                "a10c545233367302"
-            ]
-        ]
-    },
-    {
-        "id": "2169266269f68f64",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 23,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "21",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "21",
-        "x": 1150,
-        "y": 1440,
-        "wires": []
-    },
-    {
-        "id": "1a026254e1b25ac7",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 25,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "23",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "23",
-        "x": 1150,
-        "y": 1520,
-        "wires": []
-    },
-    {
-        "id": "bd12b64196660fd6",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 24,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "22",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "22",
-        "x": 1150,
-        "y": 1480,
-        "wires": []
-    },
-    {
-        "id": "6913026298833704",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 27,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "25",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "25",
-        "x": 1150,
-        "y": 1600,
-        "wires": []
-    },
-    {
-        "id": "a86ee00d637c6df2",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad21",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[20] && datos[20].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1440,
-        "wires": [
-            [
-                "2169266269f68f64"
-            ]
-        ]
-    },
-    {
-        "id": "4428c0b841cc4cdf",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 26,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "24",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "24",
-        "x": 1150,
-        "y": 1560,
-        "wires": []
-    },
-    {
-        "id": "2f6bb0bcc0202f0c",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad22",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[21] && datos[21].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1480,
-        "wires": [
-            [
-                "bd12b64196660fd6"
-            ]
-        ]
-    },
-    {
-        "id": "0b49d5adf2a53b0c",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad25",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[24] && datos[24].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1600,
-        "wires": [
-            [
-                "6913026298833704"
-            ]
-        ]
-    },
-    {
-        "id": "686d16e4f2659f31",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad24",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[23] && datos[23].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1560,
-        "wires": [
-            [
-                "4428c0b841cc4cdf"
-            ]
-        ]
-    },
-    {
-        "id": "950fe45b9c2c1ad0",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad23",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[22] && datos[22].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1520,
-        "wires": [
-            [
-                "1a026254e1b25ac7"
-            ]
-        ]
-    },
-    {
-        "id": "f82aa1849d9b3fe2",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 28,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "26",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "26",
-        "x": 1150,
-        "y": 1660,
-        "wires": []
-    },
-    {
-        "id": "9a66173fcf3a1928",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 30,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "28",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "28",
-        "x": 1150,
-        "y": 1740,
-        "wires": []
-    },
-    {
-        "id": "82e549f0a8ee6669",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 29,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "27",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "27",
-        "x": 1150,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "e90667031e1e2d18",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 32,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "30",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "30",
-        "x": 1150,
-        "y": 1820,
-        "wires": []
-    },
-    {
-        "id": "38eef3eaa0d79ce1",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad26",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[25] && datos[25].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1660,
-        "wires": [
-            [
-                "f82aa1849d9b3fe2"
-            ]
-        ]
-    },
-    {
-        "id": "a5faa44ae9173f79",
-        "type": "ui_led",
-        "z": "aed7fdab8a3bd4f2",
-        "order": 31,
-        "group": "dadfe6c80b9c9c3a",
-        "width": "2",
-        "height": "1",
-        "label": "29",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "29",
-        "x": 1150,
-        "y": 1780,
-        "wires": []
-    },
-    {
-        "id": "a0453c59818f74fa",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad27",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[26] && datos[26].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1700,
-        "wires": [
-            [
-                "82e549f0a8ee6669"
-            ]
-        ]
-    },
-    {
-        "id": "279eb9d61f021908",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad30",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[29] && datos[29].estatus;\n\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1820,
-        "wires": [
-            [
-                "e90667031e1e2d18"
-            ]
-        ]
-    },
-    {
-        "id": "729e1d6949452d83",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad29",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[28] && datos[28].estatus;\n\nmsg.estatus = estatus;\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1780,
-        "wires": [
-            [
-                "a5faa44ae9173f79"
-            ]
-        ]
-    },
-    {
-        "id": "8a9b227c204f1d7e",
-        "type": "function",
-        "z": "aed7fdab8a3bd4f2",
-        "name": "fnSalidad28",
-        "func": "var datos = global.get(\"datos\")\nvar estatus = datos && datos[27] && datos[27].estatus;\n\nif(estatus== 'DISPONIBLE'){\n    msg.payload = true;\n}else if (estatus == 'OCUPADO'){\n    msg.payload = false;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1740,
-        "wires": [
-            [
-                "9a66173fcf3a1928"
-            ]
-        ]
-    },
-    {
         "id": "360e2d35.417162",
         "type": "tcp out",
         "z": "55ba811a.d1969",
+        "d": true,
         "name": "",
         "host": "192.168.4.1",
         "port": "8080",
