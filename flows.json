@@ -600,6 +600,7 @@
         "name": "subBuscarDisponibilidadEst",
         "func": "\nmsg.topic = `select * from lugares_est where estatus = 'DISPONIBLE' AND idLugar between  1 AND 30  limit 1;`;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -708,6 +709,7 @@
         "name": "function 46",
         "func": "if(msg.verdadero == false){\n    msg.topic = 'Notificación Estacionamiento';\n    msg.payload = 'No hay Lugar Disponible en el Estacionamiento, Volver mas Tarde';\n}\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -727,6 +729,7 @@
         "name": "function 47",
         "func": "if (msg.verdadero = true){\n    msg.payload = true;\n    msg.respuesta = global.get(\"gblNumEst\")\n};\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -792,6 +795,7 @@
         "name": "function 48",
         "func": "var srcNumEst = global.get(\"gblNumEst\");\n\nif (srcNumEst !== undefined) {\n    msg.verdadero = true;\n} else {\n    msg.verdadero = false;\n}\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -855,6 +859,7 @@
         "name": "fnCambiarEstatusEst",
         "func": "var numEst = global.get(\"gblNumEst\")\nmsg.topic = `UPDATE lugares_Est set estatus ='OCUPADO' WHERE idlugar=${numEst};`;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -904,6 +909,7 @@
         "name": "fnLockTable",
         "func": "\nmsg.topic = `lock table lugares_est write;`;\nreturn msg;\n\n\n\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -4826,7 +4832,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
+        "x": 880,
         "y": 160,
         "wires": [
             [
@@ -4839,7 +4845,7 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 1090,
+        "x": 1070,
         "y": 160,
         "wires": [
             [
@@ -4852,7 +4858,7 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 710,
+        "x": 690,
         "y": 160,
         "wires": [
             [
@@ -4867,11 +4873,12 @@
         "name": "fnLockTable",
         "func": "if (msg.payload===true){\nmsg.topic = `lock table folios_est write;`;\nreturn msg;\n}\n\n\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 510,
         "y": 160,
         "wires": [
             [
@@ -4890,7 +4897,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
+        "x": 520,
         "y": 200,
         "wires": [
             [
@@ -4903,12 +4910,13 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 730,
+        "x": 690,
         "y": 200,
         "wires": [
             [
                 "4ee0578766d4de58",
-                "20ec4126a9b8aaf7"
+                "20ec4126a9b8aaf7",
+                "757b0f82022f9c3d"
             ]
         ]
     },
@@ -4925,7 +4933,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
+        "x": 880,
         "y": 240,
         "wires": []
     },
@@ -4969,8 +4977,7 @@
         "wires": [
             [
                 "7440f9cdc70f3172",
-                "01c7e4a104609e43",
-                "757b0f82022f9c3d"
+                "01c7e4a104609e43"
             ]
         ]
     },
@@ -4986,7 +4993,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1280,
+        "x": 1260,
         "y": 160,
         "wires": [
             [
@@ -5028,7 +5035,7 @@
         "topic": "",
         "topicType": "str",
         "x": 100,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "f9f09c907b4642d5"
@@ -5041,7 +5048,7 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 1030,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "bf3266e6a33595f7"
@@ -5054,7 +5061,7 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 690,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "03f50abb6813a087"
@@ -5068,12 +5075,13 @@
         "name": "fnLockTable",
         "func": "if(msg.payload===true){\n    msg.topic = `lock table folios_est write;`;\n    return msg;\n}\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "f61ad2e183818028"
@@ -5092,7 +5100,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "08e64561a62c6f32"
@@ -5105,11 +5113,12 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 710,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "a585ca71578463c8",
-                "9c61b9115843c983"
+                "9c61b9115843c983",
+                "3ebc0ff48340720d"
             ]
         ]
     },
@@ -5127,7 +5136,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 900,
-        "y": 640,
+        "y": 520,
         "wires": []
     },
     {
@@ -5152,7 +5161,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 520,
+        "y": 400,
         "wires": [
             []
         ]
@@ -5169,12 +5178,11 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "e5d81b659aeb8862",
-                "0e4dc08db2f5d6e8",
-                "3ebc0ff48340720d"
+                "0e4dc08db2f5d6e8"
             ]
         ]
     },
@@ -5184,7 +5192,7 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 110,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "09962f7307487944"
@@ -5206,7 +5214,7 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 540,
+        "x": 520,
         "y": 240,
         "wires": []
     },
@@ -5226,7 +5234,7 @@
         "topic": "",
         "name": "",
         "x": 540,
-        "y": 640,
+        "y": 520,
         "wires": []
     },
     {
@@ -5236,12 +5244,13 @@
         "name": "fnBuscarFolio",
         "func": "msg.topic = `select * from folios_est order by folio desc limit 1;`;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1200,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "7fdce5739768f064"
@@ -5255,12 +5264,13 @@
         "name": "fnInsertarFolio",
         "func": "const now = new Date();\n\n// Formatear la fecha y hora en el formato de MySQL\nconst formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;\n\n\nmsg.topic = `INSERT INTO folios_est (fecha_ingreso,fecha_fin,dias_est,costo,tipo_folio) \n VALUES ('${formattedDate}','1901-01-01 23:59:59',0,0,'NORMAL');`;\nreturn msg;\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "00f968db9b71fa7f"
@@ -5278,7 +5288,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
+        "x": 850,
         "y": 200,
         "wires": [
             [
@@ -5297,7 +5307,7 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 1070,
+        "x": 1010,
         "y": 200,
         "wires": [
             [
@@ -5317,7 +5327,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 1240,
+        "x": 1180,
         "y": 200,
         "wires": [
             [
@@ -5344,7 +5354,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1430,
+        "x": 1390,
         "y": 200,
         "wires": []
     },
@@ -5365,7 +5375,7 @@
         "name": "Flujo de la entrada 2",
         "info": "",
         "x": 130,
-        "y": 480,
+        "y": 360,
         "wires": []
     },
     {
@@ -5375,12 +5385,13 @@
         "name": "fnEPL",
         "func": " var strCodBar = msg.folio;\n //flow.get('strCadena'); //msg.payload;\n var z = String(strCodBar);\n\nif (z.length > 1) {\n    msg.payload = \"CT~~CD,~CC^~CT~\\r\\n\"\n    msg.payload += \"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR5,5~SD15^JUS^LRN^CI0^XZ\\r\\n\"\n    msg.payload += \"^XA\\r\\n\"\n    msg.payload += \"^MMT\\r\\n\"\n    msg.payload += \"^PW480\\r\\n\"\n    msg.payload += \"^LL0120\\r\\n\"\n    msg.payload += \"^LS0\\r\\n\"\n    msg.payload += \"^BY3,2,56^FT475,59^B8I,,Y,N\\r\\n\"\n    msg.payload += \"^FD\"+strCodBar+\"^FS\\r\\n\"\n    msg.payload += \"^BY3,2,56^FT219,59^B8I,,Y,N\\r\\n\"\n    msg.payload += \"^FD\"+strCodBar+\"^FS\\r\\n\"\n    msg.payload += \"^PQ1,0,1,Y^XZ\\r\\n\"\n\n    return msg;\n}\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 870,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "223008cd23383315"
@@ -5399,7 +5410,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 1010,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "a242e4fa22912b63"
@@ -5419,7 +5430,7 @@
         "oldrc": false,
         "name": "execImprime.bat",
         "x": 1180,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "86a75b93c88be12b"
@@ -5446,7 +5457,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1390,
-        "y": 600,
+        "y": 480,
         "wires": []
     },
     {
@@ -5467,7 +5478,7 @@
         "type": "subflow:89c1aad203a427f8",
         "z": "281fcb369639668d",
         "name": "",
-        "x": 570,
+        "x": 550,
         "y": 280,
         "wires": [
             [
@@ -5483,7 +5494,7 @@
         "group": "e9dac18c3e8fef5a",
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
         "always": "",
-        "x": 960,
+        "x": 940,
         "y": 280,
         "wires": []
     },
@@ -5499,7 +5510,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 770,
         "y": 280,
         "wires": [
             [
@@ -5513,7 +5524,7 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 320,
-        "y": 560,
+        "y": 440,
         "wires": [
             [
                 "67cee5fae5c4eac5"
@@ -5526,7 +5537,7 @@
         "z": "281fcb369639668d",
         "name": "",
         "x": 570,
-        "y": 680,
+        "y": 560,
         "wires": [
             [
                 "3d08cd6e8445f078"
@@ -5545,7 +5556,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 680,
+        "y": 560,
         "wires": [
             [
                 "e0094fa20b5e0ce3"
@@ -5561,7 +5572,7 @@
         "voice": "urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US",
         "always": "",
         "x": 980,
-        "y": 680,
+        "y": 560,
         "wires": []
     },
     {
@@ -5582,7 +5593,7 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 190,
+        "x": 170,
         "y": 180,
         "wires": [
             [
@@ -5610,11 +5621,11 @@
         "payloadType": "bool",
         "topic": "",
         "topicType": "str",
-        "x": 620,
+        "x": 600,
         "y": 180,
         "wires": [
             [
-                "35b9e70175f5eee5"
+                "bed85134bba2e2a5"
             ]
         ]
     },
@@ -5629,8 +5640,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 300,
+        "x": 460,
+        "y": 520,
         "wires": [
             [
                 "e1f51e61aa5f586d",
@@ -5643,8 +5654,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 690,
-        "y": 300,
+        "x": 650,
+        "y": 520,
         "wires": [
             [
                 "ba64916857ea48d8"
@@ -5656,8 +5667,8 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 330,
-        "y": 300,
+        "x": 290,
+        "y": 520,
         "wires": [
             [
                 "a12019389423ccba"
@@ -5675,8 +5686,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 170,
-        "y": 300,
+        "x": 130,
+        "y": 520,
         "wires": [
             [
                 "e5bec2987b522029"
@@ -5690,12 +5701,13 @@
         "name": "fnUnlockTable",
         "func": "msg.topic = `unlock tables;`;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 360,
+        "x": 380,
+        "y": 580,
         "wires": [
             [
                 "104a8f433b59a6b0"
@@ -5707,12 +5719,13 @@
         "type": "subflow:0cd476c06e8fa6b2",
         "z": "86122041a3705953",
         "name": "",
-        "x": 590,
-        "y": 360,
+        "x": 550,
+        "y": 580,
         "wires": [
             [
                 "62161fe7ee2316b2",
-                "15f0de8453bc7640"
+                "15f0de8453bc7640",
+                "389283bd0fc813f7"
             ]
         ]
     },
@@ -5729,8 +5742,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 400,
+        "x": 740,
+        "y": 620,
         "wires": []
     },
     {
@@ -5740,12 +5753,13 @@
         "name": "fnDeclaraVarGlobales",
         "func": "var numFolio = msg.payload && msg.payload[0] && msg.payload[0].folio;\n\nglobal.set(\"gblnumFolio\",numFolio);\n\nmsg.topic = 'Se Ingresó Folio Pensión :' + global.get(\"gblnumFolio\")\nmsg.folio =  global.get(\"gblnumFolio\")\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 200,
-        "y": 360,
+        "x": 160,
+        "y": 580,
         "wires": [
             [
                 "999708543039de8f",
@@ -5760,12 +5774,13 @@
         "name": "fnBuscarFolio",
         "func": "msg.topic = `select * from folios_est order by folio desc limit 1;`;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 300,
+        "x": 840,
+        "y": 520,
         "wires": [
             [
                 "6ee40a93dc66985c"
@@ -5778,7 +5793,7 @@
         "z": "86122041a3705953",
         "name": "",
         "x": 1050,
-        "y": 300,
+        "y": 520,
         "wires": [
             [
                 "bcf48a0f8ffa4880"
@@ -5800,8 +5815,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 410,
-        "y": 400,
+        "x": 370,
+        "y": 620,
         "wires": [
             []
         ]
@@ -5813,12 +5828,13 @@
         "name": "fnEPL",
         "func": " var strCodBar = msg.folio;\n //flow.get('strCadena'); //msg.payload;\n var z = String(strCodBar);\n\nif (z.length > 1) {\n    msg.payload = \"CT~~CD,~CC^~CT~\\r\\n\"\n    msg.payload += \"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR5,5~SD15^JUS^LRN^CI0^XZ\\r\\n\"\n    msg.payload += \"^XA\\r\\n\"\n    msg.payload += \"^MMT\\r\\n\"\n    msg.payload += \"^PW480\\r\\n\"\n    msg.payload += \"^LL0120\\r\\n\"\n    msg.payload += \"^LS0\\r\\n\"\n    msg.payload += \"^BY3,2,56^FT475,59^B8I,,Y,N\\r\\n\"\n    msg.payload += \"^FD\"+strCodBar+\"^FS\\r\\n\"\n    msg.payload += \"^BY3,2,56^FT219,59^B8I,,Y,N\\r\\n\"\n    msg.payload += \"^FD\"+strCodBar+\"^FS\\r\\n\"\n    msg.payload += \"^PQ1,0,1,Y^XZ\\r\\n\"\n\n    return msg;\n}\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 360,
+        "x": 710,
+        "y": 580,
         "wires": [
             [
                 "eac4f91f51edc0bd"
@@ -5836,8 +5852,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 910,
-        "y": 360,
+        "x": 870,
+        "y": 580,
         "wires": [
             [
                 "afde094a6164a3e4"
@@ -5856,8 +5872,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 1080,
-        "y": 360,
+        "x": 1040,
+        "y": 580,
         "wires": [
             [
                 "f0d7e584f07a2e6d"
@@ -5884,8 +5900,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1290,
-        "y": 360,
+        "x": 1230,
+        "y": 580,
         "wires": []
     },
     {
@@ -5901,8 +5917,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 260,
+        "x": 640,
+        "y": 480,
         "wires": []
     },
     {
@@ -5912,11 +5928,12 @@
         "name": "fnValidaDiasEst",
         "func": "var vardias;\n\nif (msg.payload==0){\n        vardias = ' ';\n        \n} else if (msg.payload > 0) {\n    vardias = msg.payload;\n        function sumarDias(fecha, dias) {\n                var nuevaFecha = new Date(fecha);\n                nuevaFecha.setDate(nuevaFecha.getDate() + dias);\n                nuevaFecha.setDate(nuevaFecha.getDate() - 1);\n                return nuevaFecha;\n        }\n\n        var fechaActual = new Date();\n        var fechaConDiasSumados = sumarDias(fechaActual, vardias);\n             \n}else{\n        vardias= ' ';\n}\n\nglobal.set(\"gblVardias\", vardias);\nglobal.set(\"gblFechaSalidaPension\", fechaConDiasSumados)\nmsg.global = global.get(\"gblVardias\");\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 380,
         "y": 180,
         "wires": [
             [
@@ -5938,7 +5955,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 560,
         "y": 140,
         "wires": []
     },
@@ -5953,7 +5970,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 170,
+        "x": 150,
         "y": 140,
         "wires": [
             [
@@ -5983,8 +6000,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1030,
-        "y": 180,
+        "x": 350,
+        "y": 300,
         "wires": [
             [
                 "569fc6ba44db91f2"
@@ -5999,14 +6016,15 @@
         "type": "function",
         "z": "86122041a3705953",
         "name": "function 15",
-        "func": "var numDias  = global.get(\"gblVardias\");\n\nif (numDias==0){\n    msg.validaAccion = \"caso1\";\n}else if (msg.payload >= 1){\n    msg.validaAccion = \"caso2\";\n} else{\n    msg.validaAccion = \"caso1\";\n}\nmsg.numDias = numDias;\nreturn msg;",
+        "func": "var numDias  = global.get(\"gblVardias\");\nif(msg.payload === true){\n\n    \n}\nif (numDias == 0){\n    msg.validaAccion = \"caso1\";\n}else if (msg.payload >= 1){\n    msg.validaAccion = \"caso2\";\n} else if(numDias == undefined){\n    msg.validaAccion = \"caso1\";\n}\nmsg.numDias = numDias;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 180,
+        "x": 130,
+        "y": 220,
         "wires": [
             [
                 "cb1af4a0f3308e1e",
@@ -6028,8 +6046,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 100,
+        "x": 360,
+        "y": 220,
         "wires": []
     },
     {
@@ -6039,12 +6057,13 @@
         "name": "function 16",
         "func": "if (msg.validaAccion == \"caso1\"){\n    msg.topic = 'Ingrese un numero Mayor a 0';\n}\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1210,
-        "y": 160,
+        "x": 530,
+        "y": 300,
         "wires": [
             [
                 "191e441777f890f2"
@@ -6066,8 +6085,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 1390,
-        "y": 160,
+        "x": 710,
+        "y": 300,
         "wires": [
             []
         ]
@@ -6079,12 +6098,13 @@
         "name": "function 17",
         "func": "if (msg.validaAccion == \"caso2\"){\n    msg.seguirFlujo = true;\n}\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1210,
-        "y": 200,
+        "x": 530,
+        "y": 340,
         "wires": [
             [
                 "33cb1969b92bfe0a"
@@ -6103,8 +6123,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1040,
-        "y": 140,
+        "x": 360,
+        "y": 260,
         "wires": []
     },
     {
@@ -6116,8 +6136,8 @@
         "links": [
             "5088e9c33665a2b9"
         ],
-        "x": 1175,
-        "y": 440,
+        "x": 1215,
+        "y": 620,
         "wires": []
     },
     {
@@ -6128,8 +6148,8 @@
         "links": [
             "15ad96f3ef3b70e8"
         ],
-        "x": 95,
-        "y": 80,
+        "x": 75,
+        "y": 100,
         "wires": [
             [
                 "42d75cdbdac8c348"
@@ -6144,8 +6164,8 @@
         "links": [
             "33cb1969b92bfe0a"
         ],
-        "x": 55,
-        "y": 300,
+        "x": 75,
+        "y": 480,
         "wires": [
             [
                 "7178908feef46349"
@@ -6161,9 +6181,33 @@
         "links": [
             "833fbbed8b825ffc"
         ],
-        "x": 1335,
-        "y": 200,
+        "x": 755,
+        "y": 340,
         "wires": []
+    },
+    {
+        "id": "389283bd0fc813f7",
+        "type": "subflow:89c1aad203a427f8",
+        "z": "86122041a3705953",
+        "name": "",
+        "x": 770,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bed85134bba2e2a5",
+        "type": "subflow:f03057dae7955163",
+        "z": "86122041a3705953",
+        "name": "",
+        "x": 860,
+        "y": 180,
+        "wires": [
+            [
+                "35b9e70175f5eee5"
+            ]
+        ]
     },
     {
         "id": "d92d9606d281af84",
@@ -6454,8 +6498,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 470,
-        "y": 420,
+        "x": 590,
+        "y": 360,
         "wires": []
     },
     {
@@ -6469,7 +6513,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 390,
         "y": 280,
         "wires": [
             [
@@ -6488,7 +6532,7 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 450,
+        "x": 410,
         "y": 320,
         "wires": [
             [
@@ -6508,7 +6552,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "execImprime.bat",
-        "x": 460,
+        "x": 420,
         "y": 360,
         "wires": [
             [
@@ -7007,7 +7051,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
+        "x": 400,
         "y": 540,
         "wires": [
             [
@@ -7207,7 +7251,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 1140,
+        "y": 1160,
         "wires": []
     },
     {
@@ -7729,8 +7773,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 960,
+        "x": 370,
+        "y": 900,
         "wires": [
             [
                 "8852880b2c0ceeea"
@@ -7755,8 +7799,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 530,
-        "y": 1000,
+        "x": 370,
+        "y": 940,
         "wires": [
             [
                 "6285bb2c6a5af3ae"
@@ -7777,8 +7821,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 980,
+        "x": 670,
+        "y": 920,
         "wires": [
             [
                 "ebcc2f8272293363"
@@ -7792,12 +7836,13 @@
         "name": "Manejo de Cancelación",
         "func": "if (msg.cancelar == true) {\n    msg.mPago=\"Cancelar la operación\";\n    return null;\n} else {\n    msg.mPago = \"Continuar con la operación\";\n    return msg;\n}",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1020,
+        "x": 650,
+        "y": 960,
         "wires": [
             [
                 "40e69717c824fc1a"
@@ -7815,8 +7860,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1090,
-        "y": 980,
+        "x": 930,
+        "y": 920,
         "wires": [
             [
                 "f51d79690f5ae502",
@@ -7839,8 +7884,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 780,
-        "y": 940,
+        "x": 620,
+        "y": 880,
         "wires": []
     },
     {
@@ -7856,8 +7901,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1310,
-        "y": 980,
+        "x": 1150,
+        "y": 920,
         "wires": []
     },
     {
@@ -7873,8 +7918,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
-        "y": 1020,
+        "x": 910,
+        "y": 960,
         "wires": []
     },
     {
@@ -7892,8 +7937,8 @@
         "className": "",
         "topic": "",
         "name": "",
-        "x": 1100,
-        "y": 940,
+        "x": 940,
+        "y": 880,
         "wires": []
     },
     {
@@ -10223,8 +10268,8 @@
         "base64": false,
         "end": false,
         "tls": "",
-        "x": 760,
-        "y": 340,
+        "x": 780,
+        "y": 380,
         "wires": []
     },
     {
@@ -10239,8 +10284,8 @@
         "topic": "",
         "payload": "[\"0xA0\",\"0x01\",\"0x01\",\"0xA2\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 280,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10259,8 +10304,8 @@
         "topic": "",
         "payload": " [\"0xA0\",\"0x01\",\"0x00\",\"0xA1\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 240,
+        "x": 170,
+        "y": 280,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10279,8 +10324,8 @@
         "topic": "",
         "payload": "[\"0xA0\",\"0x02\",\"0x01\",\"0xA3\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 380,
+        "x": 170,
+        "y": 420,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10299,8 +10344,8 @@
         "topic": "",
         "payload": "[\"0xA0\",\"0x02\",\"0x00\",\"0xA2\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 340,
+        "x": 170,
+        "y": 380,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10319,8 +10364,8 @@
         "topic": "",
         "payload": " [\"0xA0\",\"0x03\",\"0x01\",\"0xA4\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 480,
+        "x": 170,
+        "y": 520,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10339,8 +10384,8 @@
         "topic": "",
         "payload": "[\"0xA0\",\"0x03\",\"0x00\",\"0xA3\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 440,
+        "x": 170,
+        "y": 480,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10359,8 +10404,8 @@
         "topic": "",
         "payload": "[\"0xA0\",\"0x04\",\"0x01\",\"0xA5\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 580,
+        "x": 170,
+        "y": 620,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10379,8 +10424,8 @@
         "topic": "",
         "payload": " [\"0xA0\",\"0x04\",\"0x00\",\"0xA4\"]",
         "payloadType": "bin",
-        "x": 150,
-        "y": 540,
+        "x": 170,
+        "y": 580,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10413,8 +10458,8 @@
         "offcolor": "",
         "animate": true,
         "className": "",
-        "x": 160,
-        "y": 60,
+        "x": 180,
+        "y": 100,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10444,8 +10489,8 @@
         "offvalueType": "bin",
         "officon": "",
         "offcolor": "",
-        "x": 160,
-        "y": 100,
+        "x": 180,
+        "y": 140,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10475,8 +10520,8 @@
         "offvalueType": "bin",
         "officon": "",
         "offcolor": "",
-        "x": 160,
-        "y": 140,
+        "x": 180,
+        "y": 180,
         "wires": [
             [
                 "360e2d35.417162"
@@ -10506,8 +10551,8 @@
         "offvalueType": "bin",
         "officon": "",
         "offcolor": "",
-        "x": 160,
-        "y": 180,
+        "x": 180,
+        "y": 220,
         "wires": [
             [
                 "360e2d35.417162"
